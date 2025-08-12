@@ -3,3 +3,6 @@
 Contains code for Python Loop and NUmpy implementation
 ## HW3_SciPy.py 
 Contains code for SciPy experimentation
+## matric_multi.c
+Contains C loop approach
+### Images are named with context
