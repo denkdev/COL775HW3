@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/devsharma/Desktop/COL775/HW3/matrix_mult_analysis'
+relocations:     []
+...

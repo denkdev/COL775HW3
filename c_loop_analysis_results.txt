@@ -1,0 +1,83 @@
+C-LOOP MATRIX MULTIPLICATION ANALYSIS RESULTS
+============================================
+
+Matrix sizes tested: 8, 16, 32, 64, 128
+Iterations per size: 30
+
+Matrix Size: 8 x 8
+  Mean GFLOPS: 0.8277333333
+  Standard Deviation: 0.2617661722
+
+Matrix Size: 16 x 16
+  Mean GFLOPS: 0.9831738562
+  Standard Deviation: 0.1035310934
+
+Matrix Size: 32 x 32
+  Mean GFLOPS: 0.5649488418
+  Standard Deviation: 0.2864764602
+
+Matrix Size: 64 x 64
+  Mean GFLOPS: 1.0439711526
+  Standard Deviation: 0.1163480702
+
+Matrix Size: 128 x 128
+  Mean GFLOPS: 1.1222681457
+  Standard Deviation: 0.0421261540
+
+
+============================================================
+PERFORMANCE ANALYSIS SUMMARY
+============================================================
+
+C-Loop Implementation:
+  - Implementation: Optimized loop order for better cache performance
+  - Loop Order: i-k-j (better cache locality than naive i-j-k)
+  - Expected Behavior: Better performance than naive Python loops
+  - Memory Access: More cache-friendly access pattern
+  - Theoretical Peak: Limited by C compiler optimization but better than Python
+
+============================================================
+INTERESTING OBSERVATIONS AND COMPARISONS
+============================================================
+
+• Performance Scaling with Matrix Size:
+  - Small matrices (< 64x64): Overhead dominates, performance may be inconsistent
+  - Medium matrices (64x64 to 512x512): Cache effects and algorithm efficiency matter
+  - Large matrices (> 512x512): Memory bandwidth becomes the limiting factor
+
+• Performance Gap Analysis:
+  - C-Loop vs Python Loops: Expected 10-100x difference due to compiled vs interpreted
+  - C-Loop vs NumPy: NumPy should still be faster due to BLAS optimization
+  - C-Loop vs CuPy: GPU acceleration provides massive improvement for large matrices
+
+• Hardware Considerations:
+  - CPU: Limited by memory bandwidth (~50-100 GB/s) and single-thread performance
+  - Memory: Cache hierarchy and memory access patterns significantly impact performance
+  - Compiler: Optimization flags (-O2, -O3) can significantly improve performance
+
+============================================================
+CODE IMPLEMENTATION DETAILS
+============================================================
+
+• C implementation uses the same benchmarking framework for fair comparison
+• 30 iterations per matrix size for statistical significance
+• Error bars represent standard deviation of GFLOPS measurements
+• Linear scale used to show performance scaling across different matrix sizes
+
+• Matrix sizes tested: 8, 16, 32, 64, 128
+• Total benchmark time: ~15 seconds (estimated)
+• Output file: c_loop_analysis_results.txt
+
+============================================================
+THEORETICAL PEAK PERFORMANCE ESTIMATES
+============================================================
+
+• Modern CPU (Intel i7/i9, AMD Ryzen):
+  - Single-thread: 50-100 GFLOPS
+  - Multi-thread: 200-800 GFLOPS
+  - Memory bandwidth: 50-100 GB/s
+
+• Expected Performance Ranges:
+  - C-Loop: 1-100 GFLOPS (compiled C code)
+  - Python Loops: 0.001-1 GFLOPS (interpreted)
+  - NumPy: 1-100 GFLOPS (optimized BLAS)
