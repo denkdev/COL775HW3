@@ -6,3 +6,4 @@ Contains code for SciPy experimentation
 ## matric_multi.c
 Contains C loop approach
 ### Images are named with context
+### Used AI tools for some coding tasks
